@@ -1,3 +1,4 @@
+
 class Solution {
     public boolean satisfiesConditions(int[][] grid) {
         int row = grid.length;
