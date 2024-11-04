@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 //This code is for 2D Matrix to make satisfiable the conditions. 
+=======
+
+>>>>>>> 64fca23c5b8bff9c5839b9cc49355fca2c04bd9a
 class Solution {
     public boolean satisfiesConditions(int[][] grid) {
         int row = grid.length;
@@ -25,6 +29,7 @@ class Solution {
         
     }
 }
+<<<<<<< HEAD
  
 
 
@@ -71,3 +76,5 @@ class Solution {
     }
 
 }
+=======
+>>>>>>> 64fca23c5b8bff9c5839b9cc49355fca2c04bd9a
