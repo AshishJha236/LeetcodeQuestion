@@ -1,1 +1,38 @@
+package PriorityQueue;
 
+import java.util.PriorityQueue;
+
+public class KthLargest {
+    PriorityQueue<Integer> pq = new PriorityQueue<>();
+    private int k;
+    public KthLargest(int k, int[] nums) {
+        this.k= k;
+        for(int i=0;i<nums.length;i++){
+            pq.add(nums[i]);
+            if(pq.size() > k) pq.poll();
+        }
+        // this.k = k;
+        // this.nums = nums[];
+    }
+
+    public int add(int val) {
+        pq.add(val);
+        // pq.poll();
+        if(pq.size() >k){
+            pq.poll();
+        }
+        int ret =  pq.peek();
+        return ret;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {4,5,8,2};
+        KthLargest kth = new KthLargest(3,nums);
+        System.out.println(kth.add(3));
+        System.out.println(kth.add(5));
+        System.out.println(kth.add(10));
+        System.out.println(kth.add(9));
+        System.out.println(kth.add(4));
+
+    }
+}
