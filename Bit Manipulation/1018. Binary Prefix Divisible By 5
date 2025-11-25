@@ -1,0 +1,32 @@
+Time Complexity O(nums.length)
+class Solution {
+    public List<Boolean> prefixesDivBy5(int[] nums) {
+        int len = nums.length;
+        List<Boolean> list = new ArrayList<>();
+        int x=0;
+        for(int i=0;i<len;i++){
+            x = (2*x + nums[i])%5;
+            list.add(x==0);
+        }
+        return list;
+        // int i=0;
+        // int j=0;
+        // while(j<=len-1){
+        //     int[] arr = Arrays.copyOfRange(nums, i ,j);
+        //     int rem = binToInt(arr);
+        //     if(rem % 5 == 0){
+        //         list.add(true);
+        //     }else{
+        //         list.add(false);
+        //     }
+        // }
+        // return list;
+    }
+    // private int binToInt(int[] nums){
+    //     int ans=0;
+    //     for(int k=nums.length-1;k>=0;k--){
+    //         ans+= nums[k]*Math.pow(2,Math.abs(k-nums.length-1));
+    //     }
+    //     return ans;
+    // }
+}
