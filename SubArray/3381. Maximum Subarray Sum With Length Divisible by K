@@ -1,0 +1,25 @@
+Time complextiy O(n) and Space Complexity is O(n) for prefix array.
+class Solution {
+    public long maxSubarraySum(int[] nums, int k) {
+        int len = nums.length;
+        long[] prefix = new long[len];
+        prefix[0] = nums[0];
+        for(int i=1;i<len;i++){
+            prefix[i] = prefix[i-1]+nums[i];
+        }
+        // long currSum =0,subSum =0;
+        long ret = Long.MIN_VALUE;
+        for(int s = 0;s<k;s++){
+            long currSum =0;
+            int i = s;
+            while(i<len && i+k-1<len){
+                int j=i+k-1;
+                long subsum = prefix[j] - (i>0 ? prefix[i-1] : 0);
+                currSum = Math.max(subsum,currSum+subsum);
+                ret =Math.max(ret,currSum);
+                i+=k;
+            }
+        }
+        return ret;
+    }
+}
