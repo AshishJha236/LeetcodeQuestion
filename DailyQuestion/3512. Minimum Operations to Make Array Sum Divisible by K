@@ -1,0 +1,24 @@
+class Solution {
+    public int minOperations(int[] nums, int k) {
+        int len = nums.length;
+        int sum =0;
+        for(int n:nums){
+            sum += n;
+        }
+        int rem = sum % k;
+        if(sum % k == 0){
+            return 0;
+        }
+        // int count = 0;
+        // for(int n: nums){
+        //     if(rem<=n){
+        //         // sum -= n;
+        //         count+= (rem);
+        //         sum -= n;
+        //         if(sum %k ==0) return count;
+        //     }
+        // }
+        return rem;
+
+    }
+}
