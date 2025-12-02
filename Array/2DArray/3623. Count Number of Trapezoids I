@@ -1,0 +1,18 @@
+class Solution {
+    public int countTrapezoids(int[][] points) {
+        int m=1000000007;
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for(int[] point: points){
+            int y=point[1];
+            hm.put(y,hm.getOrDefault(y,0)+1);
+        }
+        long ret =0;
+        long prev=0;
+        for(int count : hm.values()){
+            long Hori = (long)count *(count-1)/2;
+            ret =(ret + Hori *prev )%m;
+            prev += Hori;
+        }
+        return (int)(ret%m);
+    }
+}
