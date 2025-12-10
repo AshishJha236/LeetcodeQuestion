@@ -1,0 +1,16 @@
+class Solution {
+    public int countPermutations(int[] complexity) {
+        long LL=1000000007;
+        int len = complexity.length;
+        long ret =1;
+        for(int i=1;i<len;i++){
+            if(complexity[i]<=complexity[0]){
+                return 0;
+            }else{
+                ret =(ret*i)%LL;
+            }
+
+        }
+        return(int)ret;
+    }
+}
