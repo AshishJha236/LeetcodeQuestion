@@ -1,0 +1,25 @@
+class Solution {
+    int  M= 1000000007;
+    public int numberOfWays(String corridor) {
+        int len = corridor.length();
+        ArrayList<Integer> list = new ArrayList<>();
+        int s=0;
+        for(int i=0;i<len;i++){
+            if(corridor.charAt(i) == 'S'){
+                // s++:
+                list.add(i);
+            }
+        }
+        if(list.size()%2 !=0  || list.size() ==0){
+            return 0;
+        }
+        long res=1;
+        int prev = list.get(1);
+        for(int j=2;j<list.size();j=j+2){
+            int leng = list.get(j) - prev;
+             res = (res*leng) % M;
+             prev = list.get(j+1);
+        }
+        return (int)res;
+    }
+}
