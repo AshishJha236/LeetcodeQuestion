@@ -1,0 +1,22 @@
+class Solution {
+    public int minDeletionSize(String[] strs) {
+        int row = strs.length;
+        int col = strs[0].length();
+        // Character[][] mat = new Character[row][col];
+        // for(int i=0;i<row;i++){
+        //     for(int j=0;j<col;j++){
+        //         mat[i][j] = strs[i].charAt(j);
+        //     }
+        // }
+        int ret=0;
+        for(int i=0;i<col;i++){
+            for(int j=1;j<row;j++){
+                if(strs[j].charAt(i) < strs[j-1].charAt(i)) {
+                    ret++;
+                    break;
+                }
+            }
+        }
+        return ret;
+    }
+}
