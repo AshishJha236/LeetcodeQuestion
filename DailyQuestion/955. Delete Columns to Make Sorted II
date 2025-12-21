@@ -1,0 +1,30 @@
+class Solution {
+    public int minDeletionSize(String[] strs) {
+        int row = strs.length;
+        int col = strs[0].length();
+        int ret=0;
+        boolean[] alreadySorted= new boolean[row];
+        Arrays.fill(alreadySorted, false);
+
+        for(int j=0;j<col;j++){
+            boolean check = false;
+            for(int i=0;i<row-1;i++){
+                if(!alreadySorted[i] && strs[i].charAt(j)>strs[i+1].charAt(j)){
+                    ret++;
+                    check= true;
+                    break;
+                }
+
+            }
+            if(check){
+                    continue;
+            }
+            for(int k=0;k<row-1;k++){
+                     alreadySorted[k] = alreadySorted[k] ||
+                        (strs[k].charAt(j) < strs[k + 1].charAt(j));
+            }
+
+        }
+        return ret;
+    }
+}
