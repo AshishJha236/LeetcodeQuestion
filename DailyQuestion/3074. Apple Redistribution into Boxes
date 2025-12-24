@@ -1,0 +1,28 @@
+class Solution {
+
+    public int minimumBoxes(int[] apple, int[] capacity) {
+        int len1 = apple.length;
+        int len2 = capacity.length;
+        Arrays.sort(capacity);
+        // Arrays.sort(apple);
+        int sumapp=0,sumcap=0;
+        for(int i=0;i<len1;i++){
+            sumapp+=apple[i];
+        }
+        // for(int j=0;j<len2;j++){
+        //     sumcap+=capacity[j];
+        // }
+        // if(sumapp ==sumcap){
+        //     return len2;
+        // }
+        int cnt=0;
+        for(int i=len2-1;i>=0;i--){
+            int cap= capacity[i];
+            if(sumapp==0 || sumapp<0) break;
+            sumapp-=cap;
+            cnt++;
+        }
+        return cnt;
+    }
+}
+//1,3,3,6,8,8,9     3,6,6,7,8,10
